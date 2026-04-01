@@ -1,0 +1,45 @@
+
+.navbar {
+    background-color: #99CEFF !important;
+}
+
+.navbar-brand {
+    color: #fff;
+}
+
+.navbar-brand:hover {
+    color: #fff;
+}
+
+.btn-primary {
+    background-color: #99CEFF !important;
+    border-color: #99CEFF !important;
+}
+
+.swal2-actions {
+    width: 90% !important;
+}
+
+.swal2-confirm {
+    background-color: #99CEFF !important;
+    width: 100% !important;
+}
+
+.images-list {
+    justify-content: space-between;
+}
+
+.images-list>img {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.image-list-selected {
+    border: 2px solid #99CEFF !important;
+}
+
+.card-body {
+    background-size: cover;
+    height: 100%;
+}
