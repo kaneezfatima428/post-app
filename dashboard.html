@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>post app</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="dash.css">
@@ -28,7 +28,7 @@
               <label for="exampleFormControlTextarea1" class="form-label"> Description</label>
               <textarea class="form-control" id="description" rows="3"></textarea>
             </div>
-            <div class="mb-3">
+            <!-- <div class="mb-3">
               <div class="d-flex images-list">
                 <img class="bg-image" onclick="selectImage('./images/1.avif')" src="./images/1.avif" alt="">
                 <img class="bg-image" onclick="selectImage('./images/2.webp')" src="./images/2.webp" alt="">
@@ -36,7 +36,15 @@
                   alt="">
                 <img class="bg-image" onclick="selectImage('./images/4.webp')" src="./images/4.webp" alt="">
               </div>
-            </div>
+            </div> -->
+            <div class="mb-3">
+  <div class="d-flex images-list">
+    <img class="bg-image" onclick="selectImage(event, './images/1.avif')" src="./images/1.avif" alt="Option 1">
+    <img class="bg-image" onclick="selectImage(event, './images/2.webp')" src="./images/2.webp" alt="Option 2">
+    <img class="bg-image" onclick="selectImage(event, './images/3.webp')" src="./images/3.webp" alt="Option 3">
+    <img class="bg-image" onclick="selectImage(event, './images/4.webp')" src="./images/4.webp" alt="Option 4">
+  </div>
+</div>
             <button onclick="addPost()" type="submit" class="btn btn-primary">Post</button>
 
           </div>
@@ -45,18 +53,21 @@
       <div class="col-12 col-sm-12 col-md-8 col-lg-8">
         <div class="pt-2 ">
           <div class="card" id="posts">
-
-
+ 
 
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> -->
 
   <script src="app.js"></script>
 
