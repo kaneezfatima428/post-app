@@ -327,7 +327,7 @@ window.onload = async function () {
     const postsContainer = document.getElementById("posts");
     if (postsContainer && data) {
       data.forEach(post => {
-        postsContainer.innerHTML += createPostHTML(post.title, post.description, post.bg_img);
+        postsContainer.innerHTML += createPostHTML(post.title, post.description, post.bg_img ,post.id);
       });
     }
   } catch (error) {
@@ -336,11 +336,11 @@ window.onload = async function () {
 };
 
 // Helper function to return the Post HTML template cleanly
-function createPostHTML( title, description, bgImg) {
+function createPostHTML( title, description, bg_Img,id) {
   return `
-    <div class="card mb-2">
-      <div class="card-header">~Post</div>
-      <div style="background-image: url('${bgImg || ''}'); background-size: cover; background-position: center; min-height: 150px;" class="card-body">
+    <div class="card mb-2" data-id="${id}" >
+      <div class="card-header">${id}~Post</div>
+      <div style="background-image: url('${bg_Img || ''}'); background-size: cover; background-position: center; min-height: 150px;" class="card-body">
         <figure>
           <blockquote class="blockquote">
             <p>${title}</p>
@@ -349,8 +349,8 @@ function createPostHTML( title, description, bgImg) {
         </figure>
       </div>
       <div class="ms-auto m-2">
-        <button onclick="editPost(event)" class="btn btn-success btn-sm">Edit</button>
-        <button onclick="deletePost(event)" class="btn btn-danger btn-sm">Delete</button>
+        <button onclick="editPost(event)"  class="btn btn-success btn-sm">Edit</button>
+        <button onclick="deletePost(event)" data-id="${id}" class="btn btn-danger btn-sm">Delete</button>
       </div>
     </div>`;
 }
@@ -421,15 +421,39 @@ function selectImage(event, src) {
 
   event.currentTarget.classList.add("selectImage");
 }
+async function deletePost(event) {
+  var button = event.target.closest('button');
+  
+  // 2. Phir us button ke zariye parent card ko dhoondein
+  var carddelete = event.target.closest('.card');
+try{
+  const id = event.target.getAttribute('data-id');
+   const { data, error } = await supabase
+  .from('post app table')
+  .delete()
+  .eq('id', id)
+  .select()
 
-function deletePost(event) {
+  if(error)console.log(error);
+  carddelete.remove();
+}catch(error){
+console.log(error)
+}}
+
+async function editPost(event) {
   var card = event.target.closest('.card');
-  card.remove();
-}
-
-function editPost(event) {
-  var card = event.target.closest('.card');
-
+  try{
+    const id = event.target.getAttribute('data-id');
+    const { data, error } = await supabase
+    .from('post app table')
+    .update({ name: 'piano' })
+    .eq('id', id)
+    .select()
+    if(error)console.log(error);
+   
+  }catch(error){
+  console.log(error)
+  }
   var titleText = card.querySelector('.blockquote p').innerText;
   var descriptionText = card.querySelector('.blockquote-footer').innerText;
 
