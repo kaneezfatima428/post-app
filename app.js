@@ -464,37 +464,37 @@ async function editPost(event) {
 }
 
 // 4. Registration & Login Logic
-var databaseEmail = "";
-var databasePassword = "";
+// var databaseEmail = "";
+// var databasePassword = "";
 
-function registerUser() {
-  var emailInput = document.getElementById("regEmail").value;
-  var passInput = document.getElementById("regPass").value;
+// function registerUser() {
+//   var emailInput = document.getElementById("regEmail").value;
+//   var passInput = document.getElementById("regPass").value;
 
-  if (emailInput === "" || passInput === "") {
-    Swal.fire({ icon: "error", title: "Oops...", text: "Please fill in all fields." });
-  } else {
-    databaseEmail = emailInput;
-    databasePassword = passInput;
-    Swal.fire({ title: "Good job!", text: "Account created successfully!", icon: "success" });
-  }
-}
+//   if (emailInput === "" || passInput === "") {
+//     Swal.fire({ icon: "error", title: "Oops...", text: "Please fill in all fields." });
+//   } else {
+//     databaseEmail = emailInput;
+//     databasePassword = passInput;
+//     Swal.fire({ title: "Good job!", text: "Account created successfully!", icon: "success" });
+//   }
+// }
 
-function loginUser() {
-  var currentEmail = document.getElementById("loginEmail").value;
-  var currentPass = document.getElementById("loginPass").value;
+// function loginUser() {
+//   var currentEmail = document.getElementById("loginEmail").value;
+//   var currentPass = document.getElementById("loginPass").value;
 
-  if (currentEmail === databaseEmail && currentPass === databasePassword && databaseEmail !== "") {
-    Swal.fire({
-      title: "Good job!",
-      text: "Welcome: Login successful!",
-      icon: "success"
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = "dashboard.html";
-      }
-    });
-  } else {
-    Swal.fire({ title: "Oops...", icon: "error", text: "Invalid email or password." });
-  }
-}
+//   if (currentEmail === databaseEmail && currentPass === databasePassword && databaseEmail !== "") {
+//     Swal.fire({
+//       title: "Good job!",
+//       text: "Welcome: Login successful!",
+//       icon: "success"
+//     }).then((result) => {
+//       if (result.isConfirmed) {
+//         window.location.href = "dashboard.html";
+//       }
+//     });
+//   } else {
+//     Swal.fire({ title: "Oops...", icon: "error", text: "Invalid email or password." });
+//   }
+// }

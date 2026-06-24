@@ -12,7 +12,7 @@
 
 <body>
   
-<div class="container">
+<!-- <div class="container">
       
 <div class="box">
         <div class="container">
@@ -26,9 +26,31 @@
         <input type="email" id="loginEmail" placeholder="Enter Email">
         <input type="password" id="loginPass" placeholder="Enter Password">
         <button class="login-btn" onclick="loginUser()">Sign In</button>
-    </div>
+    </div> -->
 
-
+    <div class="container">
+      <div id="loginSection" class="box">
+          <h2>Login</h2>
+          <input type="email" id="loginEmail" placeholder="Enter Email">
+          <input type="password" id="loginPass" placeholder="Enter Password">
+          <button class="login-btn" onclick="loginUser()">Sign In</button>
+          
+          <p class="toggle-text">
+              Don't have an account? <a href="#" onclick="toggleForms(event)">Sign Up</a>
+          </p>
+      </div>
+  
+      <div id="registerSection" class="box hidden">
+          <h2>Sign Up</h2>
+          <input type="email" id="regEmail" placeholder="Create Email">
+          <input type="password" id="regPass" placeholder="Create Password">
+          <button class="signup-btn" onclick="registerUser()">Register</button>
+          
+          <p class="toggle-text">
+              Already have an account? <a href="#" onclick="toggleForms(event)">Login</a>
+          </p>
+      </div>
+  </div>
 
 
 
@@ -42,7 +64,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script src="app.js"></script>
+  <script src="auth.js"></script>
 </body>
 
 </html>
